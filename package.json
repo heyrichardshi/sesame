@@ -1,0 +1,22 @@
+{
+  "name": "octothorpe",
+  "version": "0.1.0",
+  "description": "a pronounceable password generator",
+  "main": "octothorpe.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heyrichardshi/octothorpe.git"
+  },
+  "keywords": [
+    "password"
+  ],
+  "author": "Richard Shi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/heyrichardshi/octothorpe/issues"
+  },
+  "homepage": "https://github.com/heyrichardshi/octothorpe#readme"
+}
