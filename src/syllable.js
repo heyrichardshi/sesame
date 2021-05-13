@@ -1,5 +1,5 @@
-{
-    "onset": [
+const elements = {
+    onset: [
         "b",
         "bh",
         "bhl",
@@ -87,9 +87,9 @@
         "z",
         "zh",
         "zl",
-        ""
+        "",
     ],
-    "nucleus": [
+    nucleus: [
         "a",
         "ae",
         "ai",
@@ -118,9 +118,9 @@
         "ue",
         "ui",
         "uo",
-        "y"
+        "y",
     ],
-    "coda": [
+    coda: [
         "b",
         "be",
         "c",
@@ -175,6 +175,9 @@
         "ye",
         "z",
         "ze",
-        ""
-    ]
-}
+        "",
+    ],
+};
+
+const _elements = elements;
+export { _elements as elements };
