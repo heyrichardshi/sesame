@@ -1,0 +1,25 @@
+{
+    "name": "Octothorpe",
+    "description": "A pronouncable password generator.",
+    "version": "0.1.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": ["storage"],
+    "action": {
+        "default_popup": "dist/popup.html",
+        "default_icon": {
+          "16": "/images/octothorpe16.png",
+          "32": "/images/octothorpe32.png",
+          "48": "/images/octothorpe48.png",
+          "128": "/images/octothorpe128.png"
+        }
+    },
+    "icons": {
+        "16": "/images/octothorpe16.png",
+        "32": "/images/octothorpe32.png",
+        "48": "/images/octothorpe48.png",
+        "128": "/images/octothorpe128.png"
+    }
+}

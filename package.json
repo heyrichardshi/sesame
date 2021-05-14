@@ -4,7 +4,8 @@
   "description": "a pronounceable password generator",
   "private": "true",
   "scripts": {
-    "test": "npx webpack --mode=development && node dist/main.js",
+    "watch": "npx webpack --mode=production --watch --env=chrome",
+    "test": "npx webpack --mode=development --env=chrome && node dist/main.js",
     "build": "npx webpack --mode=production --env=chrome"
   },
   "repository": {
