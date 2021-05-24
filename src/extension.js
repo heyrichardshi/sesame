@@ -1,4 +1,5 @@
 import { generatePhrase } from "./octothorpe.js";
+import "./sass/popup.scss";
 
 console.log(generatePhrase(16));
 
