@@ -1,2 +1,6 @@
 @import '../../node_modules/modern-normalize/modern-normalize.css';
 @import '../../node_modules/bourbon/core/bourbon';
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Raleway&display=swap');
+$font-primary: "Raleway", sans-serif;
+$font-mono: "JetBrains Mono", monospace;
