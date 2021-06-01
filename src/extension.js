@@ -1,5 +1,7 @@
 import { generatePhrase } from "./octothorpe.js";
 import "./sass/popup.scss";
+// import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss"
+// import "../node_modules/@fortawesome/fontawesome-free/scss/regular.scss"
 
 function pushToHistory(phrase) {
     chrome.storage.sync.get(["history", "historyLimit"], function (o) {
