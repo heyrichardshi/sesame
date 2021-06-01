@@ -35,12 +35,45 @@ async function getLatestHistory() {
     }
 }
 
+function getLength() {
+    return new Promise((resolve, reject) => {
+        chrome.storage.sync.get("length", ({ length }) => {
+            if (chrome.runtime.lastError) {
+                return reject(chrome.runtime.lastError);
+            }
+            resolve(length);
+        });
+    });
+}
+
+function setLength(length) {
+    chrome.storage.sync.set({ length });
+}
+
 let passwordField = document.getElementById("generatedPassword");
+let inputLength = document.getElementById("optLength");
+
 document.getElementById("theEasyButton").addEventListener("click", async () => {
-    let p = generatePhrase(16);
+    let length = parseInt(inputLength.value);
+    let p = generatePhrase(length);
     passwordField.textContent = p;
     pushToHistory(p);
 });
+
+inputLength.addEventListener("change", function (ev) {
+    if (!this.value || parseInt(this.value) < 8 || parseInt(this.value) > 64) {
+        getLength().then((length) => {
+            this.value = length.toString();
+        });
+    } else {
+        setLength(this.value);
+    }
+});
+
 getLatestHistory().then((history) => {
     passwordField.textContent = history || "***";
+});
+
+getLength().then((length) => {
+    inputLength.value = length.toString();
 });
