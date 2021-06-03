@@ -1,0 +1,70 @@
+@import "core";
+
+body {
+    font: 16px/1em $font-primary;
+    min-width: 20em;
+    padding: modular-scale(-1);
+}
+
+.container {
+    position: relative;
+}
+
+#generatedPassword {
+    font: 1rem $font-mono;
+    line-height: modular-scale(2);
+    width: 100%;
+    height: modular-scale(2);
+    padding: 0 modular-scale(-2);
+    border: 2px solid black;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    @extend .fa-copy;
+
+    &:before {
+        @extend .far;
+        display: block;
+        @include position(absolute, -2px 0 null null);
+        @include size(modular-scale(2));
+        line-height: modular-scale(2);
+    }
+}
+
+button {
+    display: block;
+    height: 2rem;
+    width: auto;
+    padding: 0 1rem;
+    outline: none;
+    margin: 0.25rem auto;
+    border: none;
+    border-radius: 2px;
+}
+
+button.current {
+    box-shadow: 0 0 0 2px white, 0 0 0 4px black;
+}
+
+.color-bg {
+    transition: all 0.5s ease-in-out;
+
+    &:after {
+        content: "Copied!";
+        display: block;
+        opacity: 0;
+        @include position(absolute, 0 0 0 0);
+        color: lightgreen;
+        transition: all 0.5s ease-in-out;
+    }
+
+    &:active {
+        background: #aaa;
+        transition: all 0s;
+
+        &:after {
+            opacity: 1;
+            transition: all 0s;
+        }
+    }
+}

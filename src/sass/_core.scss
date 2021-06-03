@@ -1,0 +1,16 @@
+@use "sass:math";
+
+@import "~modern-normalize/modern-normalize";
+
+@import "~bourbon/core/bourbon";
+$bourbon: (
+    "modular-scale-ratio": $perfect-fifth,
+);
+
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Raleway&display=swap");
+$font-primary: "Raleway", sans-serif;
+$font-mono: "JetBrains Mono", monospace;
