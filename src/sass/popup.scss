@@ -1,4 +1,4 @@
-@import 'core';
+@import "core";
 
 body {
     font: 16px/1em $font-primary;
@@ -43,6 +43,28 @@ button {
 }
 
 button.current {
-    box-shadow: 0 0 0 2px white,
-                0 0 0 4px black;
+    box-shadow: 0 0 0 2px white, 0 0 0 4px black;
+}
+
+.color-bg {
+    transition: all 0.5s ease-in-out;
+
+    &:after {
+        content: "Copied!";
+        display: block;
+        opacity: 0;
+        @include position(absolute, 0 0 0 0);
+        color: lightgreen;
+        transition: all 0.5s ease-in-out;
+    }
+
+    &:active {
+        background: #aaa;
+        transition: all 0s;
+
+        &:after {
+            opacity: 1;
+            transition: all 0s;
+        }
+    }
 }

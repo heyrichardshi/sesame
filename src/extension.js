@@ -72,6 +72,10 @@ inputLength.addEventListener("change", function (ev) {
     }
 });
 
+passwordField.addEventListener("click", function (ev) {
+    navigator.clipboard.writeText(this.textContent)
+})
+
 getLatestHistory().then((history) => {
     passwordField.textContent = history || "***";
 });
