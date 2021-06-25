@@ -4,13 +4,25 @@
     <meta charset="utf-8">
   </head>
   <body>
-    <!-- <div class="container"> -->
-      <div id="generatedPassword" class="color-bg">***</div>
-    <!-- </div> -->
+    <div id="generatedPassword" class="color-bg">***</div>
     <button id="theEasyButton">Generate!</button>
     <h3>Options</h3>
-    <label for="optLength">Length: </label>
-    <input type="number" id="optLength" name="length" min="8" max="64" value="16" required />
+    <div>
+      <label for="optLength">Length: </label>
+      <input type="number" id="optLength" name="length" min="8" max="64" value="16" required />
+    </div>
+    <div>
+      <label for="optCapitalize">Capitalize: </label>
+      <input type="checkbox" id="optCapitalize" name="capitalize" />
+    </div>
+    <div>
+      <label for="optPrefix">Prefix (not counted towards length): </label>
+      <input type="text" id="optPrefix" name="prefix" />
+    </div>
+    <div>
+      <label for="optPostfix">Postfix (not counted towards length): </label>
+      <input type="text" id="optPostfix" name="postfix" />
+    </div>
     <script src="main.js"></script>
   </body>
 </html>

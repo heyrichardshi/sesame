@@ -54,10 +54,18 @@ function setLength(length) {
 
 let passwordField = document.getElementById("generatedPassword");
 let inputLength = document.getElementById("optLength");
+let capitalize = document.getElementById("optCapitalize");
+let prefix = document.getElementById("optPrefix");
+let postfix = document.getElementById("optPostfix");
 
 document.getElementById("theEasyButton").addEventListener("click", async () => {
     let length = parseInt(inputLength.value);
     let p = generatePhrase(length);
+    p = prefix.value + p + postfix.value;
+    console.log(capitalize.checked);
+    if (capitalize.checked) {
+        p = p.charAt(0).toUpperCase() + p.slice(1);
+    }
     passwordField.textContent = p;
     pushToHistory(p);
 });
