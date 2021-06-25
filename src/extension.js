@@ -52,12 +52,65 @@ function setLength(length) {
     chrome.storage.sync.set({ length });
 }
 
+function getCapitalization() {
+    return new Promise((resolve, reject) => {
+        chrome.storage.sync.get("capitalization", ({ capitalization }) => {
+            if (chrome.runtime.lastError) {
+                return reject(chrome.runtime.lastError);
+            }
+            resolve(capitalization);
+        });
+    });
+}
+
+function setCapitalization(capitalization) {
+    chrome.storage.sync.set({ capitalization });
+}
+
+function getPrefix() {
+    return new Promise((resolve, reject) => {
+        chrome.storage.sync.get("prefix", ({ prefix }) => {
+            if (chrome.runtime.lastError) {
+                return reject(chrome.runtime.lastError);
+            }
+            resolve(prefix);
+        });
+    });
+}
+
+function setPrefix(prefix) {
+    chrome.storage.sync.set({ prefix });
+}
+
+function getPostfix() {
+    return new Promise((resolve, reject) => {
+        chrome.storage.sync.get("postfix", ({ postfix }) => {
+            if (chrome.runtime.lastError) {
+                return reject(chrome.runtime.lastError);
+            }
+            resolve(postfix);
+        });
+    });
+}
+
+function setPostfix(postfix) {
+    chrome.storage.sync.set({ postfix });
+}
+
 let passwordField = document.getElementById("generatedPassword");
 let inputLength = document.getElementById("optLength");
+let capitalize = document.getElementById("optCapitalize");
+let prefix = document.getElementById("optPrefix");
+let postfix = document.getElementById("optPostfix");
 
 document.getElementById("theEasyButton").addEventListener("click", async () => {
     let length = parseInt(inputLength.value);
     let p = generatePhrase(length);
+    p = prefix.value + p + postfix.value;
+    console.log(capitalize.checked);
+    if (capitalize.checked) {
+        p = p.charAt(0).toUpperCase() + p.slice(1);
+    }
     passwordField.textContent = p;
     pushToHistory(p);
 });
@@ -72,6 +125,18 @@ inputLength.addEventListener("change", function (ev) {
     }
 });
 
+capitalize.addEventListener("change", function (ev) {
+    setCapitalization(this.checked);
+});
+
+prefix.addEventListener("change", function (ev) {
+    setPrefix(this.value);
+});
+
+postfix.addEventListener("change", function (ev) {
+    setPostfix(this.value);
+});
+
 passwordField.addEventListener("click", function (ev) {
     navigator.clipboard.writeText(this.textContent)
 })
@@ -82,4 +147,16 @@ getLatestHistory().then((history) => {
 
 getLength().then((length) => {
     inputLength.value = length.toString();
+});
+
+getCapitalization().then((capitalization) => {
+    capitalize.checked = capitalization;
+});
+
+getPrefix().then((v) => {
+    prefix.value = v;
+});
+
+getPostfix().then((v) => {
+    postfix.value = v;
 });
