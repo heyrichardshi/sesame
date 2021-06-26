@@ -4,9 +4,9 @@
   "description": "a pronounceable password generator",
   "private": "true",
   "scripts": {
-    "watch": "npx webpack --mode=production --watch --env=chrome",
-    "test": "npx webpack --mode=development --env=chrome && node dist/main.js",
-    "build": "npx webpack --mode=production --env=chrome"
+    "watch": "npx webpack --config=webpack.dev.js --watch --env=chrome",
+    "build": "npx webpack --config=webpack.dev.js --env=chrome",
+    "build-prod": "npx webpack --config webpack.prod.js --env=chrome"
   },
   "repository": {
     "type": "git",
